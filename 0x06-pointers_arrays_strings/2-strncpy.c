@@ -1,32 +1,33 @@
 #include "main.h"
 /**
- * rot13 - encodes a string using rot13
- * @str: the string to encode
- *
- * Return: encode string
+ *_strncat - concatenates two strings
+ *@dest: A pointer to a character that will be changed
+ *@src: A pointer to a character that will be changed
+ *@n: value
+ *Return: dest
  */
-char *rot13(char *str)
+
+char *_strncat(char *dest, char *src, int n)
+
 {
-	int i, j;
+int i, j;
 
-	char alpha[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char rot[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+i = 0;
+while (dest[i] != '\0')
+{
+i++;
+}
 
-	i = 0;
-	while (str[i] != '\0')
-	{
-		j = 0;
-		while (alpha[j] != '\0')
-		{
-			if (str[i] == alpha[j])
-			{
-				str[i] = rot[j];
-				break;
-			}
-			j++;
-		}
-		i++;
-	}
-	return (str);
+j = 0;
+while (j < n && src[j] != '\0')
+{
+dest[i] = src[j];
+j++;
+i++;
+}
+
+dest[i] = '\0';
+
+return (dest);
 }
 
